@@ -7,6 +7,7 @@ import s from "./App.module.scss";
 
 export const App = () => {
   const [count, setCount] = useState(0);
+
   return (
     <div data-testid="App">
       <h3 data-testid="platform">Platform={__PLATFORM__}</h3>

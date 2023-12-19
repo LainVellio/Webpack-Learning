@@ -1,21 +1,72 @@
 {
   "compilerOptions": {
+    // папка сборки
     "outDir": "./dist/",
-    "noImplicitAny": true,
+    // Модульная система, которую будет использовать собранное приложение
     "module": "ESNext",
+    // Версия стандарта ECMAScript, в которую будет скомпилирован код
     "target": "es5",
+    // необходимо для преобразования файлов React
     "jsx": "react-jsx",
+    // компилирует так же .js и .jsx файлы
     "allowJs": true,
+    // Стратегия, которая будет использоваться для импорта модулей, всегда указывается node
     "moduleResolution": "node",
+    // позволяет делать дефолтные импорты без использования *
+    "allowSyntheticDefaultImports": true,
+    // позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import
+    "esModuleInterop": true,
+    // Включает режим чувствительности к регистру (case-sensitive) для импорта файлов
+    "forceConsistentCasingInFileNames": true,
+    // позволяет импортировать json файлы
+    "resolveJsonModule": false,
 
-    "allowSyntheticDefaultImports": true, // позволяет делать дефолтные импорты без использования *
-    "esModuleInterop": true, // позволяет работать с пакетами, которые используют common js как с обычными пакетами с помощью import
+    // группа Strict Checks
+    // напрямую связан с проверкой типов, его включение автоматически активирует абсолютно все флаги секции Strict Checks
+    "strict": false,
+    // включает строгий режим JavaScript, по умолчанию false
+    "alwaysStrict": true,
+    // указывает если тип any без явного указания на него, надо включать
+    "noImplicitAny": true,
+    // проверяет на явное указание null или undefined, обычно лучше включать
+    "strictNullChecks": true,
+    // следит, чтобы объявленные свойства класса всегда были инициализированы
+    "strictPropertyInitialization": true,
+    // включает более строгую проверку сигнатур функций
+    "strictFunctionTypes": true,
+    // При использовании this проверяет, что контекст выполнения известен.
+    "noImplicitThis": true,
+    // включает более строгую проверку сигнатур при использовании соответствующих методов: bind, call, apply
+    "strictBindCallApply": true,
+
+    // группа Linter Checks
+    // запрещает обращаться к свойствам объекта через точку, если свойства объекта описаны не явно, а через произвольные параметры
+    // при этом позволяет использовать скобочную нотацию
+    "noPropertyAccessFromIndexSignature": true,
+    // делает ещё более строгой проверку типов при обращении по индексу
+    // например для массива a[index] будет возвращать тип с добавлением undefined
+    "noUncheckedIndexedAccess": true,
+    // проверяет, чтобы все ветки функции возвращали значение
+    "noImplicitReturns": true,
+    // проверяет наличие break в операторе switch/case
+    "noFallthroughCasesInSwitch": true,
+    // проверяет на наличие неиспользуемых переменных
+    "noUnusedLocals": false,
+    // проверяет на наличие неиспользуемых аргументов функций и методов
+    "noUnusedParameters": false,
 
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   },
+
+  // ищет файлы только в указанных папках
+  "include": ["./src", "./config"],
+  // исключает файлы, имеет приоритет на include
+  "exclude": ["node_modules", "./src/**/*.spec.ts"],
 
   "ts-node": {
     "compilerOptions": {

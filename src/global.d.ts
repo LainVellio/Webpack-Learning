@@ -1,11 +1,14 @@
-declare module "*.module.scss" {
-  interface IClassNames {
-    [className: string]: string;
-  }
+declare module "*.module.scss";
+declare module "*.module.css";
 
-  const classNames: IClassNames;
-  export = classNames;
-}
+// {
+//   interface IClassNames {
+//     [className: string]: string;
+//   }
+
+//   const classNames: IClassNames;
+//   export = classNames;
+// }
 
 declare module "*.jpg";
 declare module "*.jpeg";
